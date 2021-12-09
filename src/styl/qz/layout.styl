@@ -1,0 +1,68 @@
+// Page layout setup
+
+// Default breakpoint. Change only if you're 
+// taking over the whole page with your interactive
+$width-mobile = $medium-width
+
+html, body
+	min-width 270px
+	font-family $qz-serif
+	color $qz-body-color
+	background-color $qz-background-color
+	
+h1
+	color $qz-selection-link-color
+	
+h2, h3, p, label, text, textarea
+	color $qz-body-color
+
+h1, h2, h3, p, label, a
+	text-rendering optimizeLegibility
+
+	&::selection
+		background-color $qz-selection-link-color
+		color $qz-background-color
+
+p
+	position relative
+	margin 0 0 0 0
+	padding 0 0 30px 0
+	
+	&:last-child
+		padding 0 0 0 0
+		
+a
+	color $qz-link-color
+	text-decoration none
+	transition all 300ms
+	
+	&:hover
+		text-decoration none
+		color rgba($qz-light-body-link-color, .6)
+
+		&::selection
+				background-color rgba($qz-light-body-link-color, 0.6)
+	
+
+#interactive-wrap
+	margin 0 auto
+	//max-width $large-width
+		
+.clearfix
+	clear both
+
+#interactive-content
+	width 1px
+	min-width 100%
+	margin-left auto
+	margin-right auto
+	overflow hidden
+	
+	.copy-wrap
+		max-width $large-width
+		margin 0 auto
+		
+		.copy
+			max-width $medium-width
+			width 100%
+			float right

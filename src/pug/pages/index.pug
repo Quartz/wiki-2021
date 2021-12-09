@@ -1,0 +1,16 @@
+//- index.pug
+extends ../base.pug
+
+//- add frameMessager to the scripts
+//- remove this if you aren't making an embed
+block append head
+	script(src='https://app.qz.com/js/frameMessager/frameMessager.js')
+
+//- use thing.pug for the content
+block append inner-content
+	include ../includes/thing.pug
+
+//- add the the script for this page
+block append scripts
+	script(src='js/thing.js?t=' + build_info.timestamp)
+		

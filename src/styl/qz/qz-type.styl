@@ -1,0 +1,70 @@
+
+@font-face {
+	font-family: "MaisonNeue-Medium";
+	src: url('https://qz.com/public/fonts/MaisonNeue/MaisonNeue-Medium.woff2') format('woff2'),
+		url('/fonts/MaisonNeue/MaisonNeue-Medium.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "MaisonNeue-ExtraBold";
+	src: url('https://qz.com/public/fonts/MaisonNeue/MaisonNeue-ExtraBold.woff2') format('woff2'),
+		url('/fonts/MaisonNeue/MaisonNeue-ExtraBold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "MaisonNeueExtended-Bold";
+	src: url('https://qz.com/public/fonts/MaisonNeue/MaisonNeueExtended-Bold.woff2') format('woff2'),
+		url('/fonts/data.qz.com/MaisonNeue/MaisonNeueExtended-Bold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	
+}
+
+
+// Fonts
+$qz-sans = 'MaisonNeue-Medium','Helvetica Neue', 'HelveticaNeue', Helvetica, Arial,sans-serif
+$qz-sans-bold = 'MaisonNeue-ExtraBold', Helvetica, Arial, sans-serif
+$qz-sans-extended-bold = 'MaisonNeueExtended-Bold', Helvetica, Arial, sans-serif
+$qz-serif = "PT Serif", Georgia, serif
+$qz-font-body = $qz-serif
+
+body
+	font-size 16px
+	
+	@media only screen and (max-width 620px) and (min-width 619px)
+		font-size 20px
+
+	@media only screen and (min-width 940px)
+		font-size 20px
+
+h1
+	font-family $qz-sans-bold
+	font-size 70px
+	line-height 1.05
+	font-weight normal
+	
+	@media screen and (max-width: 767px)
+		font-size 26px
+	
+	@media screen and (max-width: 1023px) and (min-width: 768px)
+		font-size 50px
+
+h2
+	font-family $qz-sans-bold
+	font-size 2em
+	font-weight normal
+
+h3
+	font-size 1em
+	font-family $qz-sans-extended-bold
+	font-weight normal
+	text-transform uppercase
+
+p
+	font-family $qz-serif
+	font-size 1em
+	line-height 1.6

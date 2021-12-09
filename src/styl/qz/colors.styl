@@ -1,0 +1,127 @@
+// Quartz color schemes
+// NOTE: higher number = darker
+// Color ramps are at http://data.qz.com/colors
+
+// Text
+$qz-light-header = #000
+$qz-light-body = #000
+$qz-light-body-link-color = #168dd9
+$qz-light-background = #f9f9f9
+$qz-light-background-2 = #fff
+$qz-light-selection-color = $qz-blue-2
+
+
+$qz-dark-header = #fff
+$qz-dark-body = #fff
+$qz-dark-body-link-color = #168dd9
+$qz-dark-background = #171a23
+$qz-dark-background-2 = #000
+
+/* 
+// At Work
+*/
+
+$work-light-dark-gray = #333
+$work-light-blue = #0083a4
+$work-light-dark-blue = #00667F
+$work-light-light-blue = #C2E5EE
+
+$work-light-header-black = #333
+$work-light-body-black = #000
+$work-light-body-link-color = $work-blue
+$work-light-selection-color = $qz-purp-2
+
+// Uncomment for link colors to apply on at Quartz At Work
+// $qz-light-body-link-color = $work-light-body-link-color
+// $qz-light-selection-link-color = $work-light-selection-color
+
+
+/* 
+// Graphics 
+*/
+
+
+// Blues
+$qz-blue-1 = #51b2e5
+$qz-blue-2 = #168dd9
+$qz-blue-3 = #00609f
+$qz-blue-4 = #154866
+
+// Purples
+$qz-purp-1 = #d190b6
+$qz-purp-2 = #d365ba
+$qz-purp-3 = #ab5787
+$qz-purp-4 = #703c5c
+
+// Grays
+$qz-gray-1 = #c4c4c4
+$qz-gray-2 = #969696
+$qz-gray-3 = #666666
+
+// Greens
+$qz-green-1 = #87D0C0
+$qz-green-2 = #41C5A4
+$qz-green-3 = #1A9B8C
+$qz-green-4 = #006C6C
+
+// Other data colors
+$qz-republican-red = #C25068
+
+// Map colors
+$qz-map-land-fill = #E4E4E4
+$qz-map-land-stroke = #FFFFFF
+$qz-map-graticule = #EEEEEE
+$qz-map-water = $qz-background-gray
+$qz-map-water-highlight = #d9ebf6
+$qz-map-highlight = $qz-purp-2
+
+// Chart colors
+$qz-chart-gridline = #EEEEEE
+$qz-chart-meta = #CCCCCC
+$qz-chart-axis-text = #9C9C9C
+$qz-chart-title-text = #333333
+$qz-chart-zeroline = #A8A8A8
+
+// Misc
+$qz-error = #c25250
+$qz-success = #1e866c
+$color-debug = #ff8080
+
+
+// define css variables
+
+light-colors()
+	--header-color $qz-light-header
+	--body-color $qz-light-body
+	--link-color $qz-light-body-link-color
+	--selection-color $qz-light-selection-color
+	--background-color $qz-light-background
+	--background-color-2 $qz-light-background-2
+	
+dark-colors()
+	--header-color $qz-dark-header
+	--body-color $qz-dark-body
+	--body-link-color $qz-dark-body-link-color
+	--selection-color $qz-dark-selection-color
+	--background-color $qz-dark-background
+	--background-color-2 $qz-dark-background-2	
+
+:root
+	light-colors()
+
+// uncomment  this to activate dark mode
+@media (prefers-color-scheme light)
+	:root
+		light-colors()
+
+@media (prefers-color-scheme dark)
+	:root
+		dark-colors()
+
+// create stylus shorthands for the color variable statements 	
+$qz-header-color = var(--header-color)
+$qz-body-color = var(--body-color)
+$qz-link-color = var(--link-color)
+$qz-background-color = var(--background-color)
+$qz-selection-link-color = var(--selection-color)
+$qz-background-color-2 = var(--background-color-2)

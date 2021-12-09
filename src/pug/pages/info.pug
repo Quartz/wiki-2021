@@ -1,0 +1,24 @@
+//- info-page.pug
+extends ../base.pug
+
+//- removed frameMessager
+//- block indexing
+block prepend head
+	meta(name="robots" content="noindex")
+	meta(name="robots" content="nofollow")
+	meta(name="robots" content="noarchive")
+	meta(name="robots" content="nosnippet")
+	meta(name="robots" content="noimageindex")
+
+//- update the title and description of the page
+block page-info
+	title Info: #{build_info.thing_name}
+	meta(name='description', content="The info page for: " + build_info.thing_description)
+
+block append inner-content
+	//- insert thing.pug
+	h1 #{build_info.thing_name}
+	p #{build_info.thing_description}
+	p This page was last built at #{new Date(parseFloat(build_info.timestamp)).toUTCString()}
+
+	
