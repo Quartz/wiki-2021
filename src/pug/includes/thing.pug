@@ -21,7 +21,8 @@ div#graphic
 							.eachDay
 								.dayNumber!= entry.day
 								.emoji(class!= entry.emoji)!= entry.emoji
-								.article!= entry.article.replace(/_/g, " ")
+								a.article(src!="https://en.wikipedia.org/wiki/" + entry.article)
+									.article!= entry.article.replace(/_/g, " ")
 			div.annoWrapper
 				for item in content.items
 					if item.month == month
