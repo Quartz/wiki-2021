@@ -1,3 +1,5 @@
+const d3 = require("d3-dsv")
+
 module.exports = {
 	thing_name: "wikipedia",
 	thing_description: "Year end pice showing all the wikipedia articles from the year",
@@ -28,5 +30,8 @@ module.exports = {
 		}]
 
 	*/
-	datafiles: []
+	datafiles: [{
+		fn: "src/data/wiki.csv",
+		parser: d3.csvParse
+	}]
 }

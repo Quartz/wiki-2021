@@ -1,10 +1,51 @@
-h2= content.hed
-h2= content.dek
 
-for item in content.items
-	.copy-wrap
-		.copy
-			p!= item.copy
-		.clearfix
+-var months_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+div.legend
+	p.key ☠️ A 2021 death 
+	p.key 🎨 Google Doodle
+	p.key 🇺🇸 American politics or politicans 
+	p.key 📺 Relating to TV or movies
 	
 div#graphic
+	.graphic-wrapper
+		each month, index in months_list 
+			div.monthWrapper
+				.titleWrapper
+					.copy
+						.month= month
+					.clearfix
+				.daysWrapper 
+					each entry in wiki 
+						if entry.month -1 == index 
+							.eachDay
+								.dayNumber!= entry.day
+								.emoji(class!= entry.emoji)!= entry.emoji
+								.article!= entry.article.replace(/_/g, " ")
+			div.annoWrapper
+				for item in content.items
+					if item.month == month
+							div.annotation-wrapper(class=month)
+								p.annotation-note-title!= item.title
+								p.annotation-note!= item.anno
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//- for entry in wiki
+	//- 	-var n = 0
+	//- 	while n <= entry.month
+	//- 		p!= entry.month
+	//- 		-n++

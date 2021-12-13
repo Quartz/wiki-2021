@@ -46,7 +46,7 @@ const datafiles = thingConfig.datafiles.map(d => {
 	return {
 		...d, 
 		'taskName':`  get-data ${d.fn}`,
-		"cleanFN": d.fn.split(".")[0].replace(/-/g, "_")
+		"cleanFN": d.fn.split("/").pop().split(".")[0].replace(/-/g, "_")
 	}
 })
 
