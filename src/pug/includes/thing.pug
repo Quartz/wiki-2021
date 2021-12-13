@@ -21,7 +21,7 @@ div#graphic
 							.eachDay
 								.dayNumber!= entry.day
 								.emoji(class!= entry.emoji)!= entry.emoji
-								a.article(src!="https://en.wikipedia.org/wiki/" + entry.article)
+								a(src!="https://en.wikipedia.org/wiki/" + entry.article)
 									.article!= entry.article.replace(/_/g, " ")
 			div.annoWrapper
 				for item in content.items
