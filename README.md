@@ -1,6 +1,6 @@
 # wikipedia
 
-Year end pice showing all the wikipedia articles from the year
+Year end piece showing all the wikipedia articles from the year
 
 
 ## Testing and Deployments
