@@ -1,11 +1,13 @@
 
+
 -var months_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-div.legend
-	p.key ☠️ A 2021 death 
-	p.key 🎨 Google Doodle
-	p.key 🇺🇸 American politics or politicians 
-	p.key 📺 Relating to TV or movies
+//- div.legend
+//- 	p.key ☠️ A 2021 death 
+//- 	p.key 🎨 Google Doodle
+//- 	p.key 🇺🇸 American politics or politicians 
+//- 	p.key 📺 Relating to TV or movies
+//- 	p.key 🏅 Sports or athletes
 	
 div#graphic
 	.graphic-wrapper
@@ -16,13 +18,21 @@ div#graphic
 						.month= month
 					.clearfix
 				.daysWrapper 
-					each entry in wiki 
+					each entry in all_access_filtered_top_wikipedia_pages_with_emoji_2021
 						if entry.month -1 == index 
-							.eachDay
-								.dayNumber!= entry.day
+							if entry.day == 1
+								- var dow = (new Date(2021, entry.month - 1, entry.day)).getDay()
+								- var i = 0
+							while i < dow
+								.eachDay.blank
+								- i++
+							.eachDay.real(lang="en")(class!= entry.highlight)
+								.dayNumber(class!= entry.highlight)!= entry.day
 								.emoji(class!= entry.emoji)!= entry.emoji
-								a(src!="https://en.wikipedia.org/wiki/" + entry.article)
-									.article!= entry.article.replace(/_/g, " ")
+								.article(lang="en")
+									if entry.article
+										- var articleName = entry.hyphenated ? entry.hyphenated.replace(/\^/g, "&shy;") : entry.article.replace(/_/g, " ")
+										a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= articleName
 			div.annoWrapper
 				for item in content.items
 					if item.month == month

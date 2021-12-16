@@ -31,7 +31,7 @@ module.exports = {
 
 	*/
 	datafiles: [{
-		fn: "src/data/wiki.csv",
-		parser: d3.csvParse
+		fn: "https://qz-files.s3.amazonaws.com/wikipedia/all-access-filtered-top-wikipedia-pages-with-emoji-2021.json?c=01",
+		parser: JSON.parse
 	}]
 }

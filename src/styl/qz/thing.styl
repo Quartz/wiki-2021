@@ -25,79 +25,111 @@
 	max-width $large-width
 
 .titleWrapper
-	font-size 22px
-	font-family $qz-sans-bold
-	color $qz-blue-2
+	font-size 30px
+	font-family $qz-serif-bold
+	color $qz-body-copy
 	margin-bottom 10px
 	text-align center
 
 .daysWrapper
 	display flex
 	flex-flow row wrap
-	column-gap 5px
-	row-gap 5px
+	column-gap 2px
+	row-gap 2px
 
 	@media only screen and (max-width 500px)
 		flex-flow column
 
 .eachDay
+	line-height 80%
 	width 13.3%
 	background-color $qz-map-land-fill
-	padding-bottom 10px
+	padding-bottom 15px
+	border-style solid
+	border-width 1.5px
+	border-color $qz-background-color
 
+	&.blank
+		background-color $qz-background-color
+	
+	&.x
+		border-style solid
+		border-width 1.5px
+		border-color $qz-blue-2
+
+		
 	@media only screen and (max-width 500px)
 		width 100%
 		padding-bottom 5px
 		padding-top 5px
+		display grid
+		grid-template-columns 2em auto 1em
+
+		&.blank
+			display none
+
+		.article
+			grid-column-start 2
+			grid-row-start 1
+			
+		.emoji
+			grid-column-start 3
 
 .dayNumber
 	font-size 10px
 	font-family $qz-sans-bold
 	margin-left 5px
 	margin-top 5px
-	color $qz-blue-2
+	color #666
+
+	&.x
+		color $qz-blue-2
 
 	@media only screen and (max-width 500px)
 		font-size 14px
 		display inline-block
 		vertical-align middle
-		margin-top 0px
+		margin-top 1px
 
 .emoji
 	font-size 18px
 	text-align center
+	margin-bottom 5px
+	margin-top 10px
 
 	@media only screen and (max-width 500px)
 		font-size 14px
 		display inline-block
 		text-align left
 		vertical-align middle
-		margin-top 0px
+		margin-top 1px
 		float right
-		margin-right 5px
-
-.⚪, .🔴
-	visibility hidden
+		margin-bottom 0px
+		margin-top 0px
 
 .article
-	font-size 12px
-	font-family $qz-sans
 	text-align center
-	line-height 110%
-	padding 3px
-	cursor pointer
-	color $qz-body-color
-
-	&:hover
-		color $qz-blue-2
 
 	@media only screen and (max-width 500px)
-		display inline-block
 		text-align left
-		vertical-align middle
-		font-size 14px
-		padding 0px
-		margin-left 5px
+
+	a
+		font-size 12px
+		font-family $qz-sans
+		padding 3px
+		hyphens auto
+		// word-wrap break-word
+		color #666
+
+		&:hover
+			color $qz-blue-2
+
+		@media only screen and (max-width 500px)
+			display inline-block
+			vertical-align middle
+			font-size 14px
+			padding 0px
+			margin-left 5px
 
 .annoWrapper
 	margin-left auto
@@ -126,7 +158,7 @@
 	line-height 125%
 	
 	@media screen and (max-width: 550px)
-		font-size 12px
+		font-size 13px
 
 .annotation-note-title
 	padding 0 0 0.3em

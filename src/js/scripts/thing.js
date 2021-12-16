@@ -23,7 +23,7 @@ var width;
  */
 
 // add the paths of files you want to load to this array
-const filesToLoad = []
+const filesToLoad = ["https://qz-files.s3.amazonaws.com/wikipedia/all-access-filtered-top-wikipedia-pages-with-emoji-2021.json"]
 
 let loadedFiles;
 
@@ -40,6 +40,21 @@ function init() {
 
 	// Store loaded files you requested
 	loadedFiles = QZ.getLoadedFiles()
+
+	let days = d3.selectAll(".eachDay.real").data(loadedFiles[0])
+
+	days.select(".emoji")
+	days.select(".article a")
+	
+	days.selectAll(".emoji").text(d => d.emoji)
+
+	// a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= entry.article.replace(/_/g, " ")
+	days.selectAll(".article a")
+		.attr("href", d => `https://en.wikipedia.org/wiki/${d.article}`)	
+		.html(d => {
+			var articleName = d.hyphenated ? d.hyphenated.replace(/\^/g, "&shy;") : d.article.replace(/_/g, " ")
+			return articleName
+		})
 
 	width = QZ.getWidth()
 }

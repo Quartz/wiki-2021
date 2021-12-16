@@ -204,16 +204,19 @@ contentTasks.push("  get-content")
 // loop through each data file and create a task to load and parse it
 datafiles.forEach(o => {
 	function readDataFromFile(doneCallback) {
-		fs.readFile(o.fn, function(err, data){
+		request.get(o.fn, function(err, data) {
 			if (!err) {
-				data_from_file[o.cleanFN] = o.parser ? o.parser(data.toString("utf-8")) : JSON.parse(data);
+				data_from_file[o.cleanFN] = o.parser ? o.parser(data.body.toString("utf-8")) : JSON.parse(data.body);
 				doneCallback();
 			}
 			else {
 				console.log(`Cannot load data from ${o.fn}`);
 				doneCallback(err);
 			}
-		});
+		})
+		// fs.readFile(o.fn, function(err, data){
+			
+		// });
 	}
 	gulp.task(o.taskName, readDataFromFile)
 	contentTasks.push(o.taskName)
