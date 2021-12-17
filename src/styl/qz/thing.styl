@@ -42,20 +42,26 @@
 
 .eachDay
 	line-height 80%
-	width 13.3%
+	width 13.8%
 	background-color $qz-map-land-fill
 	padding-bottom 15px
 	border-style solid
-	border-width 1.5px
+	border-width 3px
 	border-color $qz-background-color
+	box-sizing border-box
+	min-height 80px
 
 	&.blank
 		background-color $qz-background-color
 	
 	&.x
-		border-style solid
-		border-width 1.5px
 		border-color $qz-blue-2
+
+	&.y
+		border-color $qz-purp-2
+	
+	&.z
+		border-color $qz-green-2
 
 		
 	@media only screen and (max-width 500px)
@@ -63,7 +69,8 @@
 		padding-bottom 5px
 		padding-top 5px
 		display grid
-		grid-template-columns 2em auto 1em
+		grid-template-columns 2em auto 1.5em
+		min-height 40px
 
 		&.blank
 			display none
@@ -85,11 +92,18 @@
 	&.x
 		color $qz-blue-2
 
+	&.y
+		color $qz-purp-2
+	
+	&.z
+		color $qz-green-2
+
 	@media only screen and (max-width 500px)
 		font-size 14px
 		display inline-block
 		vertical-align middle
-		margin-top 1px
+		margin-bottom auto
+		margin-top auto
 
 .emoji
 	font-size 18px
@@ -98,17 +112,16 @@
 	margin-top 10px
 
 	@media only screen and (max-width 500px)
-		font-size 14px
+		font-size 15px
 		display inline-block
-		text-align left
 		vertical-align middle
-		margin-top 1px
-		float right
-		margin-bottom 0px
-		margin-top 0px
+		margin-bottom auto
+		margin-top auto
 
 .article
 	text-align center
+	margin-bottom auto
+	margin-top auto
 
 	@media only screen and (max-width 500px)
 		text-align left
@@ -118,7 +131,6 @@
 		font-family $qz-sans
 		padding 3px
 		hyphens auto
-		// word-wrap break-word
 		color #666
 
 		&:hover
@@ -128,8 +140,9 @@
 			display inline-block
 			vertical-align middle
 			font-size 14px
-			padding 0px
 			margin-left 5px
+			margin-bottom auto
+			margin-top auto
 
 .annoWrapper
 	margin-left auto
@@ -143,14 +156,40 @@
 .annotation-wrapper
 	vertical-align top
 	width 44%
-	background-color $qz-blue-2
+	background-color $qz-background-color
 	padding 10px
 	margin-top 1em
+	border-style solid
+	border-width 3px
+
+	&.x
+		border-color $qz-blue-2
+	&.y
+		border-color $qz-purp-2
+	&.z
+		border-color $qz-green-2
+
 	p
-		color white
+		color $qz-body-color
 		a
-			color white
+			color $qz-body-color
 			text-decoration underline
+
+.annotation-note-title
+	padding 0 0 0.3em
+	font-size 14px
+	line-height 125%
+	font-family $qz-sans-bold
+
+	&.x
+		color $qz-blue-2
+	&.y
+		color $qz-purp-2
+	&.z
+		color $qz-green-2
+	
+	@media screen and (max-width: 550px)
+		font-size 12px
 
 .annotation-note
 	font-size 14px
@@ -159,13 +198,3 @@
 	
 	@media screen and (max-width: 550px)
 		font-size 13px
-
-.annotation-note-title
-	padding 0 0 0.3em
-	font-size 14px
-	line-height 125%
-	color $qz-purp-2
-	font-family $qz-sans-bold
-	
-	@media screen and (max-width: 550px)
-		font-size 12px

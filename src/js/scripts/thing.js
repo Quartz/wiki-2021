@@ -45,6 +45,7 @@ function init() {
 
 	days.select(".emoji")
 	days.select(".article a")
+	days.classed(d => d.highlight)
 	
 	days.selectAll(".emoji").text(d => d.emoji)
 

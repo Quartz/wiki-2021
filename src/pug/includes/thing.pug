@@ -36,8 +36,8 @@ div#graphic
 			div.annoWrapper
 				for item in content.items
 					if item.month == month
-						div.annotation-wrapper(class=month)
-							p.annotation-note-title!= item.title
+						div.annotation-wrapper(class!=item.highlight)
+							p.annotation-note-title(class!=item.highlight)!= item.title
 							p.annotation-note!= item.anno
 				
 
