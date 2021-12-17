@@ -38,6 +38,7 @@ div#graphic
 					if item.month == month
 						div.annotation-wrapper(class!=item.highlight)
 							p.annotation-note-title(class!=item.highlight)!= item.title
+							p.emojiRight!= item.emoji
 							p.annotation-note!= item.anno
 				
 
