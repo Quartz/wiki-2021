@@ -115,7 +115,7 @@ function _postRender() {
                     _resizeCondition()
                         .then(_resize)
                         .then(_update)
-                        .catch(doNothing)
+                        // .catch(doNothing)
         };
 
     window.addEventListener("resize", utils.throttle( resizeChain , 250), true);
