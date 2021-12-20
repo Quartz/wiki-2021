@@ -63,6 +63,10 @@
 	&.z
 		border-color $qz-green-2
 
+	@media (prefers-color-scheme dark)
+		background-color #333333
+
+
 	@media only screen and (min-width 940px)
 		line-height 55%
 		
@@ -135,6 +139,9 @@
 		hyphens auto
 		color #666
 
+		@media (prefers-color-scheme dark)
+			color #ccc
+
 		&:hover
 			color $qz-blue-2
 
@@ -206,3 +213,5 @@
 	
 	@media screen and (max-width: 550px)
 		font-size 13px
+
+

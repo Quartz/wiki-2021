@@ -32,7 +32,7 @@ div#graphic
 								.article(lang="en")
 									if entry.article
 										- var articleName = entry.hyphenated ? entry.hyphenated.replace(/\^/g, "&shy;") : entry.article.replace(/_/g, " ")
-										a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= ""
+										a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= articleName
 			div.annoWrapper
 				for item in content.items
 					if item.month == month

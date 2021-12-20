@@ -120,9 +120,10 @@ function _postRender() {
 function _createLoaderPromiseFromUrl(url){
 
     let loader;
-    if(url.endsWith(".json")) loader = d3.json
-    if(url.endsWith(".csv")) loader = d3.csv
-    if(url.endsWith(".tsv")) loader = d3.tsv
+    let no_query_url = url.split("?")[0]
+    if(no_query_url.endsWith(".json")) loader = d3.json
+    if(no_query_url.endsWith(".csv")) loader = d3.csv
+    if(no_query_url.endsWith(".tsv")) loader = d3.tsv
 
     if(!loader) {
         loader = d3.text

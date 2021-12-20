@@ -22,8 +22,10 @@ var width;
  * CONFIGURATION
  */
 
+const timestamp = Math.round(new Date().getTime() / (1000 * 60 * 60 * 8))
+
 // add the paths of files you want to load to this array
-const filesToLoad = ["https://qz-files.s3.amazonaws.com/wikipedia/all-access-filtered-top-wikipedia-pages-with-emoji-2021.json"]
+const filesToLoad = [`https://qz-files.s3.amazonaws.com/wikipedia/all-access-filtered-top-wikipedia-pages-with-emoji-2021.json?t=${timestamp}`]
 
 let loadedFiles;
 
@@ -42,6 +44,14 @@ function init() {
 	loadedFiles = QZ.getLoadedFiles()
 
 	let days = d3.selectAll(".eachDay.real").data(loadedFiles[0])
+
+	// days.classed(d => d.highlight, true)
+
+	days.each(function(d){
+		let day = d3.select(this)
+		day.classed(d.highlight, true)
+		day.select(".dayNumber").classed(d.highlight, true)
+	})
 
 	days.select(".emoji")
 	days.select(".article a")
