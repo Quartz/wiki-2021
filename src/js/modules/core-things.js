@@ -77,14 +77,9 @@ function _resizeCondition() {
     let newWidth = _bodyElement.getBoundingClientRect().width
 
     return new Promise((resolve, reject) => {
-        if(newWidth !== _frameWidth) {
-            _frameWidth = newWidth;
+        _frameWidth = newWidth;
 
-            resolve()
-        }
-        else {
-            reject(new Error("Resized called, but width hasn't changed"))
-        }
+        resolve()
     })
 }
 
