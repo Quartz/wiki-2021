@@ -54,13 +54,15 @@ function init() {
 	})
 
 	days.select(".emoji")
-	days.select(".article a")
+	days.select(".article")
+	days.select("a")
 	days.classed(d => d.highlight)
 	
 	days.selectAll(".emoji").text(d => d.emoji)
 
 	// a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= entry.article.replace(/_/g, " ")
 	days.selectAll(".article a")
+		.filter(d => d.article)
 		.attr("href", d => `https://en.wikipedia.org/wiki/${d.article}`)	
 		.html(d => {
 			var articleName = d.hyphenated ? d.hyphenated.replace(/\^/g, "&shy;") : d.article.replace(/_/g, " ")

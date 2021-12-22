@@ -30,9 +30,11 @@ div#graphic
 								.dayNumber(class!= entry.highlight)!= entry.day
 								.emoji(class!= entry.emoji)!= entry.emoji
 								.article(lang="en")
-									if entry.article
+									if entry.article && (entry.month != 12 && entry.day != 21)
 										- var articleName = entry.hyphenated ? entry.hyphenated.replace(/\^/g, "&shy;") : entry.article.replace(/_/g, " ")
 										a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= articleName
+									else
+										a
 			div.annoWrapper
 				for item in content.items
 					if item.month == month
