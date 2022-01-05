@@ -24,8 +24,14 @@ var width;
 
 const timestamp = Math.round(new Date().getTime() / (1000 * 60 * 60 * 8))
 
+const MOTHBALLED = true;
+
 // add the paths of files you want to load to this array
 const filesToLoad = [`https://qz-files.s3.amazonaws.com/wikipedia/all-access-filtered-top-wikipedia-pages-with-emoji-2021.json?t=${timestamp}`]
+
+if(MOTHBALLED) {
+	filesToLoad.pop()
+}
 
 let loadedFiles;
 
@@ -42,31 +48,34 @@ function init() {
 	// Store loaded files you requested
 	loadedFiles = QZ.getLoadedFiles()
 
-	let days = d3.selectAll(".eachDay.real").data(loadedFiles[0])
-
-	// days.classed(d => d.highlight, true)
-
-	days.each(function(d){
-		let day = d3.select(this)
-		day.classed(d.highlight, true)
-		day.select(".dayNumber").classed(d.highlight, true)
-	})
-
-	days.select(".emoji")
-	days.select(".article")
-	days.select("a")
-	days.classed(d => d.highlight)
+	if(!MOTHBALLED) {
+		let days = d3.selectAll(".eachDay.real").data(loadedFiles[0])
+		
+		// days.classed(d => d.highlight, true)
 	
-	days.selectAll(".emoji").text(d => d.emoji)
-
-	// a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= entry.article.replace(/_/g, " ")
-	days.selectAll(".article a")
-		.filter(d => d.article)
-		.attr("href", d => `https://en.wikipedia.org/wiki/${d.article}`)	
-		.html(d => {
-			var articleName = d.hyphenated ? d.hyphenated.replace(/\^/g, "&shy;") : d.article.replace(/_/g, " ")
-			return articleName
+		days.each(function(d){
+			let day = d3.select(this)
+			day.classed(d.highlight, true)
+			day.select(".dayNumber").classed(d.highlight, true)
 		})
+	
+		days.select(".emoji")
+		days.select(".article")
+		days.select("a")
+		days.classed(d => d.highlight)
+		
+		days.selectAll(".emoji").text(d => d.emoji)
+	
+		// a(href!="https://en.wikipedia.org/wiki/" + entry.article)!= entry.article.replace(/_/g, " ")
+		days.selectAll(".article a")
+			.filter(d => d.article)
+			.attr("href", d => `https://en.wikipedia.org/wiki/${d.article}`)	
+			.html(d => {
+				var articleName = d.hyphenated ? d.hyphenated.replace(/\^/g, "&shy;") : d.article.replace(/_/g, " ")
+				return articleName
+			})
+	}
+	
 
 	width = QZ.getWidth()
 }
