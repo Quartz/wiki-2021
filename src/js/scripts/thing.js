@@ -29,7 +29,6 @@ const filesToLoad = [`https://qz-files.s3.amazonaws.com/wikipedia/all-access-fil
 
 let loadedFiles;
 
-
 /**
  * Initialize the graphic.
  *
